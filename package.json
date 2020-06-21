@@ -1,0 +1,30 @@
+{
+  "name": "burgers",
+  "version": "1.0.0",
+  "description": "be able to write the burger you want and devour it",
+  "main": "connection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "nodemon": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loisaleghe/burgers.git"
+  },
+  "author": "Lois Aleghe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loisaleghe/burgers/issues"
+  },
+  "homepage": "https://github.com/loisaleghe/burgers#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "mysql": "^2.18.1"
+  }
+}

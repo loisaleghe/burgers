@@ -1,0 +1,21 @@
+<div class="container">
+    <img id="burgerId" src="../public/assets/img/burger.png" alt="burger-logo">
+
+    <div id=mainBody>
+        <div id=devouredListId>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <div class="row">
+                <div class="col-6">
+                    <ol>
+                        <span>{{burger_name}}</span>
+                    </ol>
+                </div>
+            </div>
+
+            {{/unless}}
+            {{/each}}
+        </div>
+
+    </div>
+</div>
