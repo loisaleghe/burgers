@@ -1,0 +1,17 @@
+body{
+    background-image: url('../img/burger-wp.jpg');
+}
+
+.mainPage{
+    width: 600px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin-left: 599px;
+margin-top: 150px;
+  background-color:plum;
+}
+.burgerImg{
+ height: 100px;
+  width: 40%;
+  margin-left: 114px;
+}

@@ -1,53 +1,55 @@
-<div class="burgerImg">
-    <img class="burgerImg" src="../public/assets/img/burger.png">
-</div>
-<h1 style="text-align: center;"> Eat-Da-Burger!</h1>
+<main class="mainPage">
+    <div class="burgerImg">
+        <img class="burgerImg" src="../assets/img/burger.jpg">
+    </div>
+    <h1 style="text-align: center;"> Eat-Da-Burger!</h1>
 
-<div class="bodySection">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <div class="notDevouredList">
-                    <h4>Not Devoured Burgers</h4>
-                    {{!-- this list is for when its not yet devoured --}}
-                    <ol>
-                        {{#each burgers}}
-                        {{#unless devoured}}
-                        <span>
-                            <li>{{  burger_name  }} <button class="notDevouredBtn"> Devour it </button> </li>
-                        </span>
-                        {{/unless}}
-                        {{/each}}
-                    </ol>
+    <div class="bodySection" style="text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="notDevouredList">
+                        <h4>Not Devoured Burgers</h4>
+                        {{!-- this list is for when its not yet devoured --}}
+                        <ol>
+                            {{#each burgers}}
+                            {{#unless devoured}}
+                            <span>
+                                <li>{{burger_name}} <button class="notDevouredBtn"> Devour it </button> </li>
+                            </span>
+                            {{/unless}}
+                            {{/each}}
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="devouredList">
+                        <h4>Devoured Burgers</h4>
+                        {{!-- this list is for when it has been devoured --}}
+                        <ol>
+                            {{#each burgers}}
+                            {{#if devoured}}
+                            <span>
+                                <li>{{burger_name}} </li>
+                            </span>
+                            {{/if}}
+                            {{/each}}
+                        </ol>
+                    </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="devouredList">
-                    <h4>Devoured Burgers</h4>
-                    {{!-- this list is for when it has been devoured --}}
-                    <ol>
-                        {{#each burgers}}
-                        {{#if devoured}}
-                        <span>
-                            <li>{{  burger_name  }} </li>
-                        </span>
-                        {{/if}}
-                        {{/each}}
-                    </ol>
+
+        </div>
+
+        <div id="burgerForm">
+            <div class="newBurgerForm">
+                <div class="form-group">
+                    <textarea id="burgerTxtBox" placeholder="create a burger!" type="text"></textarea>
                 </div>
+                <button id="burgerSbt" type="submit" class="btn btn-primary">Submit</button> <br>
+                <small>Enter a burger you want to eat and click submit</small>
             </div>
         </div>
 
     </div>
-
-    <div id="burgerForm">
-        <div class="newBurgerForm">
-            <div class="form-group">
-                <textarea id = "burgerTxtBox" placeholder = "create a burger!" type="text"></textarea>
-            </div>
-            <button id = "burgerSbt" type="submit" class="btn btn-primary">Submit</button> <br>
-            <small>Enter a burger you want to eat and click submit</small>
-        </div>
-    </div>
-
-</div>
+</main>
