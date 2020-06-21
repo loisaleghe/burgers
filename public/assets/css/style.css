@@ -9,9 +9,12 @@ body{
   margin-left: 599px;
 margin-top: 150px;
   background-color:plum;
+  box-sizing: border-box;
+
 }
 .burgerImg{
  height: 100px;
   width: 40%;
   margin-left: 114px;
+  max-width:100%
 }

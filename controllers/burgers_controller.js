@@ -23,9 +23,9 @@ router.get("/api/burgers", async function (req, res) {
 // To insert burgers
 router.post("/api/burgers", async function (req, res) {
   try {
-    const burger = new Burger(req.body);
-    await burger.save();
-    res.status(201).json(burger);
+    const newBurger = new Burger(req.body);
+    await newBurger.save();
+    res.status(201).json(newBurger);
   } catch (err) {
     res.status(500).json(err);
   }

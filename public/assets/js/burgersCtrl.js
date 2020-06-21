@@ -1,16 +1,17 @@
-document.querySelectorAll("notDevouredBtn").forEach((button) => {
-    button.addEventListener("click", function(event) {
-        const id = this.getAttribute("data-id");
-    const devourBurger = this.getAttribute("data-newdevour");
-    const name = this.getAttribute("name");
+$(document).ready(function () {
+  //When the user clicks on the submit button
+  $("#burgerSbt").on("click", function () {
+    let newBurgerdata = {
+      burger_name: $("#burgerTxtBox").val().trim()
+    };
 
-    fetch(`/api/burgers/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ burger_name: name, devoured: devourBurger }),
+    //to then send a post request
+    $.ajax(`/api/burgers`, {
+      type: "POST",
+      data: JSON.stringify(newBurgerdata),
     }).then((response) => {
       if (response.ok) location.reload();
     });
   });
-});
-    
+  });
+
