@@ -5,7 +5,7 @@ const router = express.Router();
 
 /* HTML ROUTES */
 router.get("/", async function (req, res) {
-  const data = await Burger.selectAll();
+  const data = await Burger.allBurgers();
   res.render("index", { burgers: data });
 });
 

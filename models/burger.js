@@ -8,8 +8,8 @@ class Burger {
     this.id = id;
   }
 
-  static async selectAll() {
-    const [rows] = await orm.selectAll(`burgers`);
+  static async allBurgers() {
+    const rows = await orm.selectAll(`burgers`);
     return rows;
   }
 
