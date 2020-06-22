@@ -2,10 +2,11 @@
 const orm = require("../config/orm");
 
 class Burger {
-  constructor({ burgerName, isDevoured = false, id }) {
-    this.burgerName = burgerName;
-    this.isDevoured = isDevoured;
-    this.id = id;
+
+  constructor(burger_name) {
+    this.burger_name = burger_name;
+    this.devoured = false;
+    // this.id = id;
   }
 
   static async allBurgers() {
@@ -13,13 +14,27 @@ class Burger {
     return rows;
   }
 
+  static async findById(id) {
+    const rows = await orm.findById(`burgers`, `id`, `${parseInt(id)}`)
+    
+
+    let burger = null
+    if (rows.length) {
+      burger = new Burger(rows[0].burger_name)
+      
+
+      burger = Object.assign(burger, rows[0])
+          }
+    return burger
+  }
+
   async insertBurger() {
     const result = await orm.insertOne(
       `burgers`,
       `burger_name`,
       `devoured`,
-      this.burgerName,
-      this.isDevoured
+      this.burger_name,
+      this.devoured
     );
     this.id = result.insertId;
     return this;
@@ -34,14 +49,15 @@ class Burger {
   }
 
   async updateBurger() {
-    // ensure isDevoured is a valid Boolean
-    this.isDevoured = fixBool(this.isDevoured);
-    const burger = await orm.updateOne(
+    // ensure devoured is a valid Boolean
+    this.devoured = fixBool(this.devoured);
+    await orm.updateOne(
       `burgers`,
-      { burger_name: this.burgerName, devoured: this.isDevoured },
+      { burger_name: this.burger_name, devoured: this.devoured },
       `id`,
       this.id
     );
+   
     return this;
   }
 }

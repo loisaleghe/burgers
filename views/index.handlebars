@@ -1,55 +1,75 @@
-<main class="mainPage">
-    <div class="burgerImg">
-        <img class="burgerImg" src="../assets/img/burger.jpg">
-    </div>
-    <h1 style="text-align: center;"> Eat-Da-Burger!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <main class="mainPage">
+                <div class="text-center">
+                    <img class="burgerImg" src="../assets/img/burger.jpg">
+                </div>
+                <h1 class="text-center"> Eat-Da-Burger!</h1>
 
-    <div class="bodySection" style="text-align: center;">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <div class="notDevouredList">
-                        <h4>Not Devoured Burgers</h4>
-                        {{!-- this list is for when its not yet devoured --}}
-                        <ol>
-                            {{#each burgers}}
-                            {{#unless devoured}}
-                            <span>
-                                <li>{{burger_name}} <button class="notDevouredBtn"> Devour it </button> </li>
-                            </span>
-                            {{/unless}}
-                            {{/each}}
-                        </ol>
+                <div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="notDevouredList">
+                                <h4>Not Devoured Burgers</h4>
+                                {{!-- this list is for when its not yet devoured --}}
+                                {{#each burgers}}
+                                {{#unless devoured}}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="notDevouredBurger">{{id}}.{{burger_name}} </div>
+                                        <button class="devourBtn btn btn-light mt-3" data-id="{{id}}"
+                                            name="{{burger_name}}" data-devour="{{devoured}}" type="submit">
+                                            Devour it </button>
+                                    </div>
+                                </div>
+
+                                {{/unless}}
+                                {{/each}}
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="devouredList">
+                                <h4>Devoured Burgers</h4>
+                                {{!-- this list is for when it has been devoured --}}
+
+                                {{#each burgers}}
+                                {{#if devoured}}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="devouredBurger mt-3">{{id}}.{{burger_name}} </div>
+                                    </div>
+                                </div>
+
+                                {{/if}}
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-6 offset-3 mt-5 pt-2">
+                        <div class="form-group">
+                            <textarea class="form-control" id="burgerTxtBox" placeholder="create a burger!"
+                                type="text"></textarea>
+                        </div>
+                        <div class="text-center"><button id="burgerSbt" type="submit"
+                                class="btn btn-primary">Submit</button></div> <br>
+                        <h6 class="text-center small">Enter a burger you want to eat and click submit</h6>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="devouredList">
-                        <h4>Devoured Burgers</h4>
-                        {{!-- this list is for when it has been devoured --}}
-                        <ol>
-                            {{#each burgers}}
-                            {{#if devoured}}
-                            <span>
-                                <li>{{burger_name}} </li>
-                            </span>
-                            {{/if}}
-                            {{/each}}
-                        </ol>
-                    </div>
-                </div>
-            </div>
 
+
+
+
+
+            </main>
         </div>
-
-        <div id="burgerForm">
-            <div class="newBurgerForm">
-                <div class="form-group">
-                    <textarea id="burgerTxtBox" placeholder="create a burger!" type="text"></textarea>
-                </div>
-                <button id="burgerSbt" type="submit" class="btn btn-primary">Submit</button> <br>
-                <small>Enter a burger you want to eat and click submit</small>
-            </div>
-        </div>
-
     </div>
-</main>
+</div>

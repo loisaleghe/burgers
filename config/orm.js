@@ -17,7 +17,14 @@ const orm = {
         const sql = 'UPDATE ?? SET ? WHERE ?? = ?'
         const [rows] = await connection.query(sql, [tableName, colToSearch,idcol, val])
         return rows
+    },
+
+    findById: async function (tableName, colToSearch, idVal) {
+        const sql = 'SELECT * FROM ?? WHERE ?? = ?'
+        const [rows] = await connection.query(sql, [tableName,colToSearch, idVal ])
+        return rows
     }
+
 }
 
 module.exports = orm

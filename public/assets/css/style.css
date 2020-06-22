@@ -1,20 +1,36 @@
 body{
     background-image: url('../img/burger-wp.jpg');
+    width: 100%;
+    height: 100%
 }
 
 .mainPage{
-    width: 600px;
+width: 100%;
   padding: 10px;
   border: 5px solid gray;
-  margin-left: 599px;
-margin-top: 150px;
+  margin-top: 150px;
   background-color:plum;
   box-sizing: border-box;
-
+  
 }
 .burgerImg{
- height: 100px;
-  width: 40%;
-  margin-left: 114px;
-  max-width:100%
+ height: 125px;
+  width: 125px;
+}
+
+.notDevouredBurger{
+  width:75%;
+  height:40px;
+  background-color: lavenderblush;
+  margin: 5px;
+  display: inline-block;
+}
+
+.devouredBurger{
+  width:75%;
+  height:40px;
+  background-color: lavenderblush;
+  margin:5px;
+  display: inline-block;
+  color: grey;
 }

@@ -23,7 +23,7 @@ router.get("/api/burgers", async function (req, res) {
 // To insert burgers
 router.post("/api/burgers", async function (req, res) {
   try {
-    const newBurger = new Burger(req.body);
+    const newBurger = new Burger(req.body.burger_name);
     await newBurger.save();
     res.status(201).json(newBurger);
   } catch (err) {
@@ -33,21 +33,29 @@ router.post("/api/burgers", async function (req, res) {
 
 //To update burgers
 router.patch("/api/burger/:id", async function (req, res) {
-  const id = req.params.id;
-  const burgerName = req.body.burger_name;
-  const devoured = req.body.devoured;
-
-  let newBurger = new Burger({
-    burgerName: burgerName,
-    isDevoured: devoured,
-    id,
-  });
-  try {
-    await newBurger.save();
-    res.status(200).json(newBurger);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  try{
+    const id = req.params.id;
+    let burger = await Burger.findById(id)
+    
+    burger = Object.assign(burger, req.body)
+    await burger.save()
+    res.status(200).json(burger)
+    } catch (err) {
+      console.log(err)
+      res.status(500).json(err)
+    }
 });
+
+
+// router.patch("/api/burger/devour/:id", async function (req, res){
+//   try{
+//   const id = req.params.id;
+//   let burger = await Burger.findById(id)
+//   burger = Object.assign(burger, {devoured: true})
+//   await burger.save()
+//   } catch (err) {
+//     res.status(500).json(err)
+//   }
+// })
 
 module.exports = router;
