@@ -2,7 +2,7 @@
   "name": "burgers",
   "version": "1.0.0",
   "description": "be able to write the burger you want and devour it",
-  "main": "connection.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
@@ -25,8 +25,7 @@
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.4",
     "pg": "^8.2.1",
-    "sequelize": "^5.21.13",
-    "sequelize-heroku": "^2.1.5"
+    "sequelize": "^5.21.13"
   },
   "devDependencies": {
     "mysql": "^2.18.1"
